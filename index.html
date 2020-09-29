@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #iframe {
+        background-color: blueviolet;
+    }
+</style>
+
+<body>
+
+    <iframe id="iframe" width="100%" height="300"></iframe>
+
+    <script>
+
+
+        window.onload = function () {
+            var iframe = document.getElementById('iframe'); // Nas iframe
+
+            var iframeUrl = 'https://www.google.rs/' //Njihov url koji je defnisan iz njhihovog adsServera
+
+            // Click tag koji bi trebalo da dodje od spolja iz goggle ad managera( U nasem slucaju sam dodao da to bude "diwanee tag") kako bi na njihov google url dodao tag diwanee i pretrazio diwanee u googlu
+
+            var clickTag = '/search?sxsrf=ALeKk03dWOP3d_EJIOESxhmfO39mSz11kg%3A1601384132521&ei=xC5zX9-7H5G1U7ujg9AF&q=diwanee&oq=diwanee&gs_lcp=CgZwc3ktYWIQAzIFCAAQywEyBQgAEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgQIABAeMgQIABAeMgYIABAKEB4yBggAEAoQHjIECAAQHjoHCAAQRxCwAzoECCMQJzoECC4QJzoICAAQsQMQgwE6BQgAELEDOgQIABBDOgIIADoFCC4QsQM6BAgAEAo6BAguEAo6BQguEMsBULdmWMdtYOhuaAJwAngAgAFliAGJBZIBAzYuMZgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=psy-ab&ved=0ahUKEwjfrfjitI7sAhWR2hQKHbvRAFoQ4dUDCA0&uact=5'
+
+            // Url od kompletnog iframe koji ce se proslediti u funkciji kada se klikne na reklamu
+            var iframeSrc = iframeUrl + clickTag;
+
+            iframe.contentWindow.document.onclick = function () {
+                top.window.open(iframeSrc)
+            };
+        };
+
+    </script>
+</body>
+
+</html>
