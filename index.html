@@ -7,15 +7,26 @@
     <title>Document</title>
 </head>
 <style>
+
+    body{
+        background-color: black;
+    }
     #iframe {
-        background-color: blueviolet;
-        height: 500px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:url('/300x600.jpg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 </style>
 
 <body>
 
-    <div id="iframe" width="100%" height="300"></div>
+    <div id="iframe"></div>
 
     <script>
 
@@ -33,13 +44,13 @@
                 clickTag = e.data
 
 
-                if (e.origin !== "http://127.0.0.1:5500") {
-                    return;
-                } else {
+                // if (e.origin !== "http://127.0.0.1:5500") {
+                //     return;
+                // } else {
 
-                    clickTag = e.data
+                //     clickTag = e.data
 
-                }
+                // }
 
             });
 
