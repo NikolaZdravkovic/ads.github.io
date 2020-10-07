@@ -23,17 +23,19 @@
 
         window.addEventListener('message', function (e) {
 
-            console.log(e.data);
+            // console.log(e.data);
 
             clickTag = e.data
 
         });
 
-        var iframe = document.getElementById('iframe'); // Nas iframe
+        console.log(clickTag)
 
-        iframe.addEventListener('click', function () {
-            top.window.open(clickTag)
-        })
+        // var iframe = document.getElementById('iframe'); // Nas iframe
+
+        // iframe.addEventListener('click', function () {
+        //     top.window.open(clickTag)
+        // })
 
 
         // window.onload = function () {
