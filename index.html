@@ -61,9 +61,13 @@
 
 
 
-            iframe.addEventListener('click', function () {
-                top.window.open(clickTag)
-            });
+            // iframe.addEventListener('click', function () {
+            //     top.window.open(clickTag)
+            // });
+
+             iframe.addEventListener('click', function (e) {
+            window.location.href = clickTag;
+        }, true)
 
         // }
 
