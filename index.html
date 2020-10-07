@@ -47,7 +47,7 @@
                  clickTag = e.data;
 
 
-                // if (e.origin !== "https://partner.googleadservices.com/") {
+                // if (e.origin !== "http://127.0.0.1:5500") {
                 //     return;
                 // } else {
 
@@ -62,10 +62,8 @@
 
 
             iframe.addEventListener('click', function () {
-                top.window.open(clickTag)
+                window.open(clickTag)
             });
-
-   
 
         // }
 
