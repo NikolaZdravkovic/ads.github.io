@@ -18,23 +18,27 @@
 
     <script>
 
+        window.addEventListener('message',function(){
+            console.log('message recived ...')
+        })
 
-        window.onload = function () {
-            var iframe = document.getElementById('iframe'); // Nas iframe
 
-            var iframeUrl = 'https://www.google.rs/' //Njihov url koji je defnisan iz njhihovog adsServera
+        // window.onload = function () {
+        //     var iframe = document.getElementById('iframe'); // Nas iframe
 
-            // Click tag koji bi trebalo da dodje od spolja iz goggle ad managera( U nasem slucaju sam dodao da to bude "diwanee tag") kako bi na njihov google url dodao tag diwanee i pretrazio diwanee u googlu
+        //     var iframeUrl = 'https://www.google.rs/' //Njihov url koji je defnisan iz njhihovog adsServera
 
-            var clickTag = '/search?sxsrf=ALeKk03dWOP3d_EJIOESxhmfO39mSz11kg%3A1601384132521&ei=xC5zX9-7H5G1U7ujg9AF&q=diwanee&oq=diwanee&gs_lcp=CgZwc3ktYWIQAzIFCAAQywEyBQgAEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgQIABAeMgQIABAeMgYIABAKEB4yBggAEAoQHjIECAAQHjoHCAAQRxCwAzoECCMQJzoECC4QJzoICAAQsQMQgwE6BQgAELEDOgQIABBDOgIIADoFCC4QsQM6BAgAEAo6BAguEAo6BQguEMsBULdmWMdtYOhuaAJwAngAgAFliAGJBZIBAzYuMZgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=psy-ab&ved=0ahUKEwjfrfjitI7sAhWR2hQKHbvRAFoQ4dUDCA0&uact=5'
+        //     // Click tag koji bi trebalo da dodje od spolja iz goggle ad managera( U nasem slucaju sam dodao da to bude "diwanee tag") kako bi na njihov google url dodao tag diwanee i pretrazio diwanee u googlu
 
-            // Url od kompletnog iframe koji ce se proslediti u funkciji kada se klikne na reklamu
-            var iframeSrc = iframeUrl + clickTag;
+        //     var clickTag = '/search?sxsrf=ALeKk03dWOP3d_EJIOESxhmfO39mSz11kg%3A1601384132521&ei=xC5zX9-7H5G1U7ujg9AF&q=diwanee&oq=diwanee&gs_lcp=CgZwc3ktYWIQAzIFCAAQywEyBQgAEMsBMgUIABDLATIFCAAQywEyBQgAEMsBMgQIABAeMgQIABAeMgYIABAKEB4yBggAEAoQHjIECAAQHjoHCAAQRxCwAzoECCMQJzoECC4QJzoICAAQsQMQgwE6BQgAELEDOgQIABBDOgIIADoFCC4QsQM6BAgAEAo6BAguEAo6BQguEMsBULdmWMdtYOhuaAJwAngAgAFliAGJBZIBAzYuMZgBAKABAaoBB2d3cy13aXrIAQjAAQE&sclient=psy-ab&ved=0ahUKEwjfrfjitI7sAhWR2hQKHbvRAFoQ4dUDCA0&uact=5'
 
-            iframe.contentWindow.document.onclick = function () {
-                top.window.open(iframeSrc)
-            };
-        };
+        //     // Url od kompletnog iframe koji ce se proslediti u funkciji kada se klikne na reklamu
+        //     var iframeSrc = iframeUrl + clickTag;
+
+        //     iframe.contentWindow.document.onclick = function () {
+        //         top.window.open(iframeSrc)
+        //     };
+        // };
 
     </script>
 </body>
