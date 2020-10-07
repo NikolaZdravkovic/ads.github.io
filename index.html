@@ -18,8 +18,11 @@
 
     <script>
 
-        window.addEventListener('message',function(){
-            console.log('message recived ...')
+        window.addEventListener('message', function (e) {
+            console.log('message recived ...');
+
+
+            console.log(e);
         })
 
 
