@@ -31,9 +31,9 @@
             clickTag = e.data
             console.log(clickTag)
 
-            iframe.contentWindow.document.onclick = function () {
+            iframe.addEventListener('click', function () {
                 top.window.open(clickTag)
-            };
+            });
 
         });
 
