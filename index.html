@@ -20,13 +20,20 @@
     <script>
 
         var clickTag;
+        var iframe = document.getElementById('iframe'); // Nas iframe
+
 
         window.addEventListener('message', function (e) {
 
+
             // console.log(e.data);
 
-             clickTag = e.data
-             console.log(clickTag)
+            clickTag = e.data
+            console.log(clickTag)
+
+            iframe.contentWindow.document.onclick = function () {
+                top.window.open(clickTag)
+            };
 
         });
 
