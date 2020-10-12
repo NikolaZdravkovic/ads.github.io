@@ -27,7 +27,6 @@
 <body>
 
     <div id="iframe"></div>
-    <script src="//media.admob.com/api/v1/google_mobile_app_ads.js"></script>
 
     <script>
 
@@ -39,47 +38,48 @@
         var iframe = document.getElementById('iframe'); // Nas iframe
 
 
-        window.addEventListener('message', function (e) {
+        // window.addEventListener('message', function (e) {
 
 
-            // console.log(e.data);
+        //     // console.log(e.data);
 
 
 
-            clickTag = e.data.clickTag;
-            deepLink = e.data.deepLink;
+        //     clickTag = e.data.clickTag;
+        //     deepLink = e.data.deepLink;
 
 
-            // if (e.origin !== "http://127.0.0.1:5500") {
-            //     return;
-            // } else {
+        //     // if (e.origin !== "http://127.0.0.1:5500") {
+        //     //     return;
+        //     // } else {
 
-            //     clickTag = e.data
+        //     //     clickTag = e.data
 
-            // }
-            console.log(e.data);
-            console.log(clickTag);
+        //     // }
+        //     console.log(e.data);
+        //     console.log(clickTag);
 
-        });
+        // });
 
 
 
 
         iframe.addEventListener('click', function () {
             // window.open(clickTag)
+            window.parent.myFunction();
 
-            if (deepLink === true) {
-                admob.opener.canOpen(clickTag, function (checkType, results) {
-                    if (results['clickTag']) {
-                        admob.recordEvent('%%CLICK_URL_ESC%%');
-                        admob.opener.openUrl(clickTag, false);
-                    } else {
-                        admob.opener.openUrl(`%%CLICK_URL_UNESC%%${clickTag}`, false);
-                    }
-                });
-            } else {
-                admob.opener.openUrl(`%%CLICK_URL_UNESC%%${clickTag}`, true);
-            }
+            // if (deepLink === true) {
+            //     admob.opener.canOpen(clickTag, function (checkType, results) {
+            //         if (results['clickTag']) {
+            //             admob.recordEvent('%%CLICK_URL_ESC%%');
+            //             admob.opener.openUrl(clickTag, false);
+            //         } else {
+            //             admob.opener.openUrl(`%%CLICK_URL_UNESC%%${clickTag}`, false);
+            //         }
+            //     });
+            // } else {
+            //     admob.opener.openUrl(`%%CLICK_URL_UNESC%%${clickTag}`, true);
+            // }
         });
 
         // }
