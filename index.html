@@ -7,17 +7,17 @@
     <title>Document</title>
 </head>
 <style>
-
-    body{
+    body {
         background-color: black;
     }
+
     #iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-image:url('300x600.jpg');
+        background-image: url('300x600.jpg');
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -32,39 +32,54 @@
 
         // window.onload = function () {
 
-            var clickTag;
+        var clickTag;
+        var deepLink;
 
-            var iframe = document.getElementById('iframe'); // Nas iframe
-
-
-            window.addEventListener('message', function (e) {
+        var iframe = document.getElementById('iframe'); // Nas iframe
 
 
-                // console.log(e.data);
-
-          
-
-                 clickTag = e.data.clickTag;
+        window.addEventListener('message', function (e) {
 
 
-                // if (e.origin !== "http://127.0.0.1:5500") {
-                //     return;
-                // } else {
-
-                //     clickTag = e.data
-
-                // }
-                console.log(e.data);
-                console.log(clickTag);
-
-            });
+            // console.log(e.data);
 
 
 
+            clickTag = e.data.clickTag;
+            deepLink = e.data.deepLink;
 
-            iframe.addEventListener('click', function () {
-                window.open(clickTag)
-            });
+
+            // if (e.origin !== "http://127.0.0.1:5500") {
+            //     return;
+            // } else {
+
+            //     clickTag = e.data
+
+            // }
+            console.log(e.data);
+            console.log(clickTag);
+
+        });
+
+
+
+
+        iframe.addEventListener('click', function () {
+            // window.open(clickTag)
+
+            if (deepLink === true) {
+                admob.opener.canOpen(clickTag, function (checkType, results) {
+                    if (results['clickTag']) {
+                        admob.recordEvent('%%CLICK_URL_ESC%%');
+                        admob.opener.openUrl(clickTag, false);
+                    } else {
+                        admob.opener.openUrl(`%%CLICK_URL_UNESC%%${clickTag}`, false);
+                    }
+                });
+            } else {
+                admob.opener.openUrl(`%%CLICK_URL_UNESC%%${clickTag}`, true);
+            }
+        });
 
         // }
 
