@@ -64,15 +64,28 @@
 
         // });
 
-        var anchor = document.getElementsByTagName("a")[0];
+        // var anchor = document.getElementsByTagName("a")[0];
+        // var att = document.createAttribute("id");
+        // att.value = "wrapper";
+
+        // anchor.removeAttribute("href");
+        // anchor.setAttributeNode(att);
+
+
+
+        var first = document.body.children[0];
+
+        console.log(first);
+
         var att = document.createAttribute("id");
         att.value = "wrapper";
 
-        anchor.removeAttribute("href");
-        anchor.setAttributeNode(att);
-
+        first.removeAttribute('href');
+        first.setAttributeNode(att);
 
         var wrapper = document.getElementById('wrapper');
+
+
         
 
 
@@ -93,8 +106,8 @@
 
 
         wrapper.addEventListener('click', function () {
-            // window.open(clickTag)
-            // window.parent.myFunction();
+        //     // window.open(clickTag)
+        //     // window.parent.myFunction();
             parent.postMessage("This is a message", "*");
 
             // if (deepLink === true) {
