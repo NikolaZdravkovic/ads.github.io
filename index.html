@@ -62,6 +62,14 @@
         // });
 
 
+        window.addEventListener('message', function (e) {
+
+            if (e.data == "https://www.google.rs/"){
+                console.log('child recived message')
+            }
+
+        });
+
 
 
         iframe.addEventListener('click', function () {
