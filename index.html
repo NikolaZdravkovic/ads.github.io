@@ -25,8 +25,11 @@
 </style>
 
 <body>
+    <a href="javascript:window.open(window.clickTag)" class="oc_frame">
+        <div id="iframe"></div>
 
-    <div id="iframe"></div>
+    </a>
+
 
     <script>
 
@@ -36,7 +39,7 @@
         var deepLink;
 
         var iframe = document.getElementById('iframe'); // Nas iframe
-
+        // document.querySelector(".oc_frame").removeAttribute("href");
 
         // window.addEventListener('message', function (e) {
 
@@ -61,18 +64,35 @@
 
         // });
 
+        var anchor = document.getElementsByTagName("a")[0];
+        var att = document.createAttribute("id");
+        att.value = "wrapper";
+
+        anchor.removeAttribute("href");
+        anchor.setAttributeNode(att);
+
+
+        var wrapper = document.getElementById('wrapper');
+        
+
+
 
         window.addEventListener('message', function (e) {
 
-            if (e.data == "https://www.google.rs/"){
+            if (e.data == "https://www.google.rs/") {
                 console.log('child recived message')
             }
 
         });
 
 
+        // document.getElementById('wrapper').addEventListener('click', function () {
+        //     // window.open('https://www.google.rs/');
+        //     alert('this will probably work')
+        // })
 
-        iframe.addEventListener('click', function () {
+
+        wrapper.addEventListener('click', function () {
             // window.open(clickTag)
             // window.parent.myFunction();
             parent.postMessage("This is a message", "*");
